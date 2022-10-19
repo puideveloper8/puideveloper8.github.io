@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flash Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="mobile.css" />
+    <script type="text/javascript" src="./questionsJSON/necklace1.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/necklace2.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/necklace3.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/necklace4.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/necklace5.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/prince.json"></script>   
+    <script type="text/javascript" src="./questionsJSON/leaf.json"></script>   
+</head>
+<body>
+    <section class="container">
+        <div class="head">
+            <lable class="lable" for="kartendecks">Choose your deck:</lable>
+            <select class="decks" name="kartendecks" id="decks">
+                <option id="necklace1" value="necklace1">項鍊 1</option>
+                <option id="necklace2" value="necklace2">項鍊 2</option>
+                <option id="necklace3" value="necklace3">項鍊 3</option>
+                <option id="necklace4" value="necklace4">項鍊 4</option>
+                <option id="necklace5" value="necklace5">項鍊 5</option>
+                <option id="prince" value="prince">快樂王子</option>
+                <option id="leaf" value="leaf">最後一片葉子</option>
+            </select>
+        </div>
+
+    <button type="button" class="correct next">I knew</button>
+
+    <div class="card">
+        <div class="front">
+            <section class="content">
+                <h2>Question:</h2>
+                <p class="question"></p>
+                <input class="answer" type="text" placeholder="translation">
+                <button type="button" class="check_answer">Check Answer</button>
+            </section>
+        </div>
+        <div class="back">
+                <button class="return">What was the question?</button>
+                <section class="content">
+                    <h2>Answer:</h2>
+                    <p class="solution">...</p>
+                    <button type="button" class="new_word">neue question</button>
+                </section>
+        </div>
+    </div>
+
+    <button type="button" class="wrong next">next</button>
+
+    <h4 id="known">Known so far:</h4>
+    <h3 class="remaining"></h3>
+    <h4 id="next">Next round:</h4>
+    <button type="button" class="reload">reload</button>
+
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
