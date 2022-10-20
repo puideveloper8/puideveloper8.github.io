@@ -1,0 +1,21 @@
+leaf5 = [
+{"question":"暴風","Answer":"bàofēng"},
+{"question":"電筒","Answer":"diàntǒng"},
+{"question":"沾","Answer":"zhān"},
+{"question":"泥土","Answer":"nítǔ"},
+{"question":"梯子","Answer":"tīzi"},
+{"question":"抹","Answer":"mǒ"},
+{"question":"顏料","Answer":"yánliào"},
+{"question":"調色盤","Answer":"diàosèpán"},
+{"question":"零散","Answer":"língsǎn"},
+{"question":"擺放","Answer":"bǎifàng"},
+{"question":"恍然大悟","Answer":"huǎngrándàwù"},
+{"question":"窗","Answer":"chuāng"},
+{"question":"受盡","Answer":"shòujìn"},
+{"question":"淋","Answer":"lín"},
+{"question":"貝阿蒙","Answer":"bèi āméng"},
+{"question":"掉落","Answer":"diàoluò"},
+{"question":"爬","Answer":"pá"},
+{"question":"磚牆","Answer":"zhuānqiáng"},
+{"question":"梯子","Answer":"tīzi"}
+]

@@ -1,6 +1,6 @@
 // load questionSets into scope
 // index 0 will be chosen as default on page load
-const questionSetsJSON = [necklace1, necklace2, necklace3, necklace4, necklace5,prince, leaf];
+const questionSetsJSON = [necklace1, necklace2, necklace3, necklace4, necklace5, prince, leaf1, leaf2, leaf3, leaf4, leaf5];
 
 // ask youser before leaving the page if they really want to
 window.addEventListener("beforeunload", (e) => {
