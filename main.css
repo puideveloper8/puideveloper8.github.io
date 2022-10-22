@@ -27,7 +27,10 @@ th {
             ". options ."
             "true card false"
             "known remaining next"
-            ". reload .";
+            ". reload ."
+            ". show_list ."
+            ". word_table ."
+            ". print_list .";
     align-items: center;
 
     -webkit-perspective: 800px;
@@ -130,6 +133,7 @@ li {
     text-align: center;
 }
 
+
 .hidden {
     display: none;
 }
@@ -170,6 +174,62 @@ button.wrong {
     grid-area: reload;
 }
 
+.show_list {
+    display: flex;
+    justify-content: center;
+    grid-area: show_list;
+}
+
+.word_table {
+    display: flex;
+    justify-content: center;
+    grid-area: word_table;
+}
+
+.print_list {
+    display: flex;
+    justify-content: center;
+    grid-area: print_list;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529; 
+}
+
+.table th,.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 0;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 0;
+    border-left:0; 
+}
+
+.mycaption {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #78220c;
+}
+
+.table .thead-light th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #260e70; 
+    border-bottom: 1px solid #260e70;
+    border-top: 1px solid #260e70;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6; 
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6; 
+}    
+  
 .head {
     font-size: calc(10px + .5vw);
     display: inline;

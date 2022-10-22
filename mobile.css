@@ -11,7 +11,11 @@
                 "card card card card"
                 "true true false false"
                 "known remaining remaining next"
-                "reload reload reload reload";
+                "reload reload reload reload"
+                "show_list show_list show_list show_list"
+                "word_table word_table word_table word_table"
+                "print_list print_list print_list print_list";
+
         justify-content: center;
         align-items: center;
     }
@@ -26,7 +30,7 @@
 
     button.correct,
     button.wrong,
-    .reload {
+    .reload , .show_list, .word_table, .print_list{
         margin: 0;
         padding: 1vh;
         width: 100%;

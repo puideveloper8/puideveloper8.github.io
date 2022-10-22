@@ -21,6 +21,9 @@ let correctBUTTON = document.querySelector(".correct");
 let wrongBUTTON = document.querySelector(".wrong");
 let reloadBUTTON = document.querySelector(".reload");
 let returnBUTTON = document.querySelector(".return");
+let showListBUTTON = document.querySelector(".show_list");
+let printBUTTON = document.querySelector(".print_list");
+
 // card-deck-choice-fields
 const cardDeckOptions = [
     "necklace1",
@@ -29,7 +32,11 @@ const cardDeckOptions = [
     "necklace4",
     "necklace5",
     "prince",
-    "leaf",
+    "leaf1",
+    "leaf2",
+    "leaf3",
+    "leaf4",
+    "leaf5",
 ];
 
 // Text below the Cards
@@ -37,6 +44,7 @@ let remainingCards = document.querySelector(".remaining");
 let knownCards = document.querySelector("#known");
 let knownCardsCounter = 0;
 let nextCards = document.querySelector("#next");
+let reminingList = document.querySelector("#remaining_list");
 
 // define question-set
 // global questionSet
@@ -156,14 +164,21 @@ function flipBackAndDisplayAnswer() {
 
 // get a new card
 function newCard() {
-    if (questionSet.length === 0 && nextRound.length > 0) {
-        questionSet = nextRound;
-        questionSetsJSON[lastDeckIDX] = nextRound;
-        nextRound = [];
+    if (questionSet.length === 0 && nextRound.length === 0){
+        
+        randomPair = {"question":"Yeah! Finished","Answer":"完成任務"};
+        displayQuestion(randomPair);
+    }    
+    else {
+        if (questionSet.length === 0 && nextRound.length > 0){
+            questionSet = nextRound;
+            questionSetsJSON[lastDeckIDX] = nextRound;
+            nextRound = [];
+        }
+        // create new randomPair in global scope
+        randomPair = getQuestionPair(questionSet);     
+        displayQuestion(randomPair);   
     }
-    // create new randomPair in global scope
-    randomPair = getQuestionPair(questionSet);
-    displayQuestion(randomPair);
 }
 
 // removes current randomPair of question Answer from global questionSet-Array of objects
@@ -177,7 +192,81 @@ function removeCardFromSet(correct) {
         nextRound.push(card);
         questionSet.splice(idx, 1);
     }
-    if (questionSet.length > 0 || nextRound.length > 0) newCard();
+//    if (questionSet.length > 0 || nextRound.length > 0) 
+    newCard();
+}
+
+// show the list from the nextRound
+function showList(){
+    let tbl = '<table class="table table-hover" id="table_word_list" >';
+    tbl += '<caption class="mycaption question">背默表</caption>';
+    tbl += '<thead class="thead-light">';
+    tbl += '<tr>';
+    tbl += '<th onclick="toggleQuestionColumn()" style="cursor: pointer;" class="question">詞語</th>';
+    tbl += '<th onclick="toggleAnswerColumn()" style="cursor: pointer;" class="question">拼音</th>';
+    tbl += '</tr>';
+    tbl += '</thead>';
+    tbl += '<tbody>';
+    nextRound.forEach(element => {
+        tbl += '<tr>';
+        tbl += '<td class="question">';
+        tbl += element["question"];
+        tbl += '</td>';
+        tbl += '<td class="solution">';
+        tbl += element["Answer"];
+        tbl += '</td></tr>';
+    });
+    tbl += '</tbody>';
+    tbl += '</table>';
+    reminingList.innerHTML = tbl;
+}
+
+function toggleQuestionColumn(){
+    if ($( "td:nth-child(1)" ).css( "color") == "rgb(33, 37, 41)")
+        $( "td:nth-child(1)" ).css( "color", "rgb(255, 255, 255)" );
+    else    
+        $( "td:nth-child(1)" ).css( "color", "rgb(33, 37, 41)" );
+}
+
+function toggleAnswerColumn(){
+    if ($( "td:nth-child(2)" ).css( "color") == "rgb(33, 37, 41)")
+        $( "td:nth-child(2)" ).css( "color", "rgb(255, 255, 255)" );
+    else    
+        $( "td:nth-child(2)" ).css( "color", "rgb(33, 37, 41)" );
+}
+
+function exportTableToExcel(){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById('table_word_list');
+   // var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    var tableHTML = tableSelect.outerHTML;
+    
+    // Specify file name
+    //filename = filename?filename+'.xls':'excel_data.xls';
+    filename = "背默表.xls";
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+   
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + encodeURI("\uFEFF" + tableHTML);
+        //downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
 }
 
 // attache the show-result function to the button on frontside of card
@@ -197,6 +286,10 @@ correctBUTTON.addEventListener("click", () => {
 // reload the page / begin from the beginning
 reloadBUTTON.addEventListener("click", () => location.reload());
 
+// show the list
+showListBUTTON.addEventListener("click", showList);
 
+// show the list
+printBUTTON.addEventListener("click", exportTableToExcel);
 
 
