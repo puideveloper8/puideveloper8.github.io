@@ -22,7 +22,7 @@ th {
     display: grid;
     justify-items: center;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: auto 1fr auto auto;
+    grid-template-rows: auto 1fr auto auto auto auto auto;
     grid-template-areas:
             ". options ."
             "true card false"
@@ -74,9 +74,9 @@ th {
     grid-area: innerCard;
     background: repeating-linear-gradient(
         0deg,
-        red,
-        rgb(227, 204, 131) 2px,
-        rgb(227, 204, 131) 40px,
+        rgb(248, 195, 195),
+        rgb(242, 229, 187) 1px,
+        rgb(242, 229, 187) 40px,
         black 30px
         );
 }
@@ -87,8 +87,8 @@ th {
     grid-area: innerCard;
     background: repeating-linear-gradient(
         0deg,
-        red,
-        rgb(131, 173, 227) 2px,
+        rgb(248, 195, 195),
+        rgb(131, 173, 227) 1px,
         rgb(131, 173, 227) 40px,
         black 30px
         );
@@ -122,13 +122,13 @@ li {
 }
 
 .question {
-    font-size: calc(30px + .7vw);
+    font-size: calc(40px + .7vw);
     font-family: TW-MOE-Std-Kai;
     text-align: center;
 }
 
 .solution {
-    font-size: calc(30px + .7vw);
+    font-size: calc(40px + .7vw);
     font-family: "Book Antiqua";
     text-align: center;
 }
