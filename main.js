@@ -1,6 +1,6 @@
 // load questionSets into scope
 // index 0 will be chosen as default on page load
-const questionSetsJSON = [eatpig, l_20221023, necklace1, necklace2, necklace3, necklace4, necklace5, prince, leaf1, leaf2, leaf3, leaf4, leaf5];
+const questionSetsJSON = [eatpig, l_20221023, necklace1, necklace2, necklace3, necklace4, necklace5, prince1, prince2, prince3, prince4, prince5, leaf1, leaf2, leaf3, leaf4, leaf5];
 
 // ask youser before leaving the page if they really want to
 window.addEventListener("beforeunload", (e) => {
@@ -33,7 +33,11 @@ const cardDeckOptions = [
     "necklace3",
     "necklace4",
     "necklace5",
-    "prince",
+    "prince1",
+    "prince2",
+    "prince3",
+    "prince4",
+    "prince5",
     "leaf1",
     "leaf2",
     "leaf3",
