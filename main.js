@@ -26,7 +26,7 @@ let printBUTTON = document.querySelector(".print_list");
 
 // card-deck-choice-fields
 const cardDeckOptions = [    
-    "背影",
+    "father",
     "eatpig",
     "l_20221023",
     "necklace1",
